@@ -1,5 +1,5 @@
-let r1 = 125;
-let r2 = 125;
+let r1 = 120;
+let r2 = 120;
 let m1 = 10;
 let m2 = 10;
 let a1 = 0;
@@ -15,12 +15,16 @@ let cx, cy;
 let buffer;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvasWidth = 500
+  let canvasHeight = 500
+
+  let cnv = createCanvas(canvasWidth, canvasHeight);
   pixelDensity(1);
   a1 = PI / 2;
   a2 = PI / 2;
-  cx = windowWidth / 2;
-  cy = windowHeight/2;
+  cx = canvasWidth / 2;
+  cy = canvasHeight / 2;
+  cnv.position((windowWidth - canvasWidth)/2, (windowHeight-canvasHeight)/2)
   buffer = createGraphics(width, height);
   buffer.background(3,37,57);
   buffer.translate(cx, cy);
@@ -30,7 +34,6 @@ function draw() {
   background(3,37,57);
   imageMode(CORNER);
   image(buffer, 0, 0, width, height);
-
   let num1 = -g * (2 * m1 + m2) * sin(a1);
   let num2 = -m2 * g * sin(a1 - 2 * a2);
   let num3 = -2 * sin(a1 - a2) * m2;
@@ -74,7 +77,3 @@ function draw() {
   px2 = x2;
   py2 = y2;
 }
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-  }
