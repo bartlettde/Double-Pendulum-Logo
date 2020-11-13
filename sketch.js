@@ -16,8 +16,8 @@ function getRndInteger(min, max) {
 }
 
 function setup() {
-  let canvasWidth = 350
-  let canvasHeight = 350
+  let canvasWidth = 320;
+  let canvasHeight = 320;
 
   let cnv = createCanvas(canvasWidth, canvasHeight);
   pixelDensity(1);
