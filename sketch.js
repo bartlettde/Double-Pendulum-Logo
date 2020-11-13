@@ -1,22 +1,23 @@
-let r1 = 120;
-let r2 = 120;
-let m1 = 10;
-let m2 = 10;
+let r1 = 60;
+let r2 = 60;
 let a1 = 0;
 let a2 = 0;
 let a1_v = 0;
 let a2_v = 0;
 let g = 1;
-
 let px2 = -1;
 let py2 = -1;
 let cx, cy;
 
 let buffer;
 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 function setup() {
-  let canvasWidth = 500
-  let canvasHeight = 500
+  let canvasWidth = 350
+  let canvasHeight = 350
 
   let cnv = createCanvas(canvasWidth, canvasHeight);
   pixelDensity(1);
@@ -31,6 +32,8 @@ function setup() {
 }
 
 function draw() {
+  let m1 = getRndInteger(4, 15);
+  let m2 = getRndInteger(4, 15);
   background(3,37,57);
   imageMode(CORNER);
   image(buffer, 0, 0, width, height);
